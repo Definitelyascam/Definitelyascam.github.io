@@ -5,35 +5,39 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For You ❤️</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
-  background: radial-gradient(circle at top, #3b0a15, #140307 70%);
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+  background: linear-gradient(135deg, #2b0a18, #5c102d, #8f1d3f);
+  background-size: 200% 200%;
+  animation: bgShift 10s ease infinite;
+  color: white;
   overflow-x: hidden;
-  padding: 20px;
 }
 
-/* Floating hearts background */
-body::before {
-  content: "❤ ❤ ❤ ❤ ❤";
+@keyframes bgShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* subtle floating hearts */
+body::after {
+  content: "❤  ❤   ❤";
   position: fixed;
-  font-size: 120px;
-  opacity: 0.03;
-  top: 10%;
-  left: 5%;
+  font-size: 140px;
+  opacity: 0.04;
+  top: 20%;
+  left: 10%;
   animation: float 12s ease-in-out infinite alternate;
 }
 
@@ -42,123 +46,176 @@ body::before {
   to { transform: translateY(40px); }
 }
 
-.container {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 24px;
-  padding: 60px 40px;
-  max-width: 700px;
-  width: 100%;
+.section {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  backdrop-filter: blur(12px);
-  box-shadow: 0 30px 80px rgba(0,0,0,0.6);
-  animation: fadeIn 1s ease forwards;
+  padding: 40px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s cubic-bezier(.17,.67,.3,1);
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.6rem;
-  margin-bottom: 30px;
-  color: #ffccd5;
+  font-size: 2.8rem;
+  font-weight: 700;
+  letter-spacing: -1px;
 }
 
-p {
-  font-size: 1.15rem;
+.text {
+  font-size: 1.2rem;
+  max-width: 650px;
   line-height: 1.8;
-  margin-bottom: 30px;
   opacity: 0.9;
 }
 
+/* Highlight upgrade */
 .highlight {
-  font-weight: 500;
-  color: #ff8fa3;
+  display: inline-block;
+  margin-top: 35px;
+  padding: 14px 28px;
+  font-weight: 600;
+  border-radius: 50px;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(255,100,130,0.4);
+  animation: glowPulse 2.5s ease-in-out infinite;
+  transition: 0.3s ease;
+}
+
+@keyframes glowPulse {
+  0% { box-shadow: 0 0 15px rgba(255,100,130,0.3); }
+  50% { box-shadow: 0 0 30px rgba(255,100,130,0.6); }
+  100% { box-shadow: 0 0 15px rgba(255,100,130,0.3); }
 }
 
 button {
+  margin-top: 40px;
   background: linear-gradient(135deg, #ff4d6d, #ff758f);
   border: none;
-  padding: 15px 34px;
+  padding: 16px 36px;
   font-size: 1rem;
   color: white;
   border-radius: 40px;
   cursor: pointer;
   transition: 0.3s ease;
   box-shadow: 0 10px 30px rgba(255,77,109,0.4);
+  animation: buttonPulse 2.5s infinite;
+}
+
+@keyframes buttonPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
 }
 
 button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 15px 40px rgba(255,77,109,0.6);
+  transform: scale(1.1);
 }
 
 .voucher {
-  margin-top: 40px;
-  display: none;
-  animation: fadeUp 0.8s ease forwards;
+  opacity: 0;
+  transform: translateY(20px) scale(0.98);
+  margin-top: 50px;
+  transition: 0.8s ease;
+}
+
+.voucher.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
 .voucher img {
   width: 100%;
   max-width: 500px;
-  border-radius: 16px;
-  margin-bottom: 20px;
-  box-shadow: 0 15px 50px rgba(0,0,0,0.5);
+  border-radius: 20px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.4);
 }
 
 .subline {
+  margin-top: 20px;
   font-size: 1rem;
-  opacity: 0.85;
+  opacity: 0.9;
 }
 
-@keyframes fadeIn {
-  from {opacity:0; transform: translateY(20px);}
-  to {opacity:1; transform: translateY(0);}
+.small-note {
+  opacity: 0.6;
+  margin-top: 25px;
+  font-size: 0.9rem;
 }
 
-@keyframes fadeUp {
-  from {opacity:0; transform: translateY(20px);}
-  to {opacity:1; transform: translateY(0);}
-}
-
-@media(max-width:600px){
-  .container {
-    padding: 40px 25px;
-  }
-  h1 {
-    font-size: 2rem;
-  }
+@media(max-width: 600px){
+  h1 { font-size: 2rem; }
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
-
-  <h1>Happy Valentine’s Day ❤️</h1>
-
-  <p>
-    You told me <span class="highlight">La Casa di Nico</span> is your favourite.
-    So I remembered.
-  </p>
-
-  <p class="highlight">
-    Just something small for someone I genuinely enjoy.
-  </p>
-
-  <button onclick="showVoucher()">Open Your Surprise</button>
-
-  <div class="voucher" id="voucher">
-    <img src="voucher-placeholder.jpg" alt="Voucher">
-    <p class="subline">Use it whenever you want.</p>
-    <p class="subline">Preferably when you're dressed cute.</p>
+<section class="section">
+  <div>
+    <h1>Happy Valentine’s Day, cutie ❤️</h1>
   </div>
+</section>
 
-</div>
+<section class="section">
+  <div>
+    <p class="text">
+      You told me La Casa di Nico is your favourite.
+      So I remembered.
+    </p>
+
+    <div class="highlight">
+      Just something small for someone I genuinely enjoy ✨
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div>
+    <button onclick="showVoucher()">Open Your Surprise 💌</button>
+
+    <div class="voucher" id="voucher">
+      <img src="voucher-placeholder.jpg" alt="Voucher">
+
+      <p class="subline">
+        Use it whenever you want.
+      </p>
+
+      <div class="highlight">
+        Preferably when you're dressed cute 😉
+      </div>
+
+      <p class="small-note">
+        Enjoy it.
+      </p>
+    </div>
+  </div>
+</section>
 
 <script>
 function showVoucher() {
-  document.getElementById("voucher").style.display = "block";
+  document.getElementById("voucher").classList.add("show");
 }
+
+const sections = document.querySelectorAll(".section");
+
+window.addEventListener("scroll", () => {
+  sections.forEach(section => {
+    const position = section.getBoundingClientRect().top;
+    const screenPosition = window.innerHeight / 1.2;
+    if(position < screenPosition){
+      section.classList.add("visible");
+    }
+  });
+});
 </script>
 
 </body>
