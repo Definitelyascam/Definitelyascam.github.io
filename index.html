@@ -30,32 +30,16 @@ body {
   100% { background-position: 0% 50%; }
 }
 
-/* subtle floating hearts */
-body::after {
-  content: "❤  ❤   ❤";
-  position: fixed;
-  font-size: 140px;
-  opacity: 0.04;
-  top: 20%;
-  left: 10%;
-  animation: float 12s ease-in-out infinite alternate;
-}
-
-@keyframes float {
-  from { transform: translateY(0px); }
-  to { transform: translateY(40px); }
-}
-
 .section {
-  height: 100vh;
+  min-height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 40px;
+  padding: 30px 40px;
   opacity: 0;
-  transform: translateY(40px);
-  transition: all 1s cubic-bezier(.17,.67,.3,1);
+  transform: translateY(30px);
+  transition: all 0.9s ease;
 }
 
 .section.visible {
@@ -64,72 +48,54 @@ body::after {
 }
 
 h1 {
-  font-size: 2.8rem;
+  font-size: 2.6rem;
   font-weight: 700;
-  letter-spacing: -1px;
+  margin-bottom: 10px; /* reduced space */
 }
 
 .text {
   font-size: 1.2rem;
   max-width: 650px;
   line-height: 1.8;
-  opacity: 0.9;
+  opacity: 0.95;
+  margin-top: 10px;
 }
 
-/* Highlight upgrade */
-.highlight {
-  display: inline-block;
-  margin-top: 35px;
-  padding: 14px 28px;
-  font-weight: 600;
-  border-radius: 50px;
-  background: rgba(255,255,255,0.1);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 0 20px rgba(255,100,130,0.4);
-  animation: glowPulse 2.5s ease-in-out infinite;
-  transition: 0.3s ease;
+/* Clean bold highlight text */
+.bold-highlight {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-top: 25px;
 }
 
-@keyframes glowPulse {
-  0% { box-shadow: 0 0 15px rgba(255,100,130,0.3); }
-  50% { box-shadow: 0 0 30px rgba(255,100,130,0.6); }
-  100% { box-shadow: 0 0 15px rgba(255,100,130,0.3); }
-}
-
+/* Button clean (no pulse) */
 button {
   margin-top: 40px;
   background: linear-gradient(135deg, #ff4d6d, #ff758f);
   border: none;
-  padding: 16px 36px;
+  padding: 15px 34px;
   font-size: 1rem;
   color: white;
   border-radius: 40px;
   cursor: pointer;
   transition: 0.3s ease;
-  box-shadow: 0 10px 30px rgba(255,77,109,0.4);
-  animation: buttonPulse 2.5s infinite;
-}
-
-@keyframes buttonPulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
+  box-shadow: 0 10px 25px rgba(255,77,109,0.35);
 }
 
 button:hover {
-  transform: scale(1.1);
+  transform: translateY(-3px);
 }
 
 .voucher {
   opacity: 0;
-  transform: translateY(20px) scale(0.98);
+  transform: translateY(20px);
   margin-top: 50px;
   transition: 0.8s ease;
 }
 
 .voucher.show {
   opacity: 1;
-  transform: translateY(0) scale(1);
+  transform: translateY(0);
 }
 
 .voucher img {
@@ -145,10 +111,15 @@ button:hover {
   opacity: 0.9;
 }
 
-.small-note {
-  opacity: 0.6;
-  margin-top: 25px;
-  font-size: 0.9rem;
+.arrow {
+  font-size: 3rem;
+  margin-top: 60px;
+}
+
+.inside-joke {
+  margin-top: 20px;
+  font-size: 1rem;
+  opacity: 0.8;
 }
 
 @media(max-width: 600px){
@@ -162,19 +133,19 @@ button:hover {
 <section class="section">
   <div>
     <h1>Happy Valentine’s Day, cutie ❤️</h1>
+
+    <p class="text">
+      You told me La Casa di Nico is your favourite.
+      So I remembered.
+    </p>
   </div>
 </section>
 
 <section class="section">
   <div>
-    <p class="text">
-      You told me La Casa di Nico is your favourite.
-      So I remembered.
-    </p>
-
-    <div class="highlight">
+    <p class="bold-highlight">
       Just something small for someone I genuinely enjoy ✨
-    </div>
+    </p>
   </div>
 </section>
 
@@ -189,13 +160,18 @@ button:hover {
         Use it whenever you want.
       </p>
 
-      <div class="highlight">
+      <p class="bold-highlight">
         Preferably when you're dressed cute 😉
+      </p>
+
+      <div class="arrow">
+        👇
       </div>
 
-      <p class="small-note">
-        Enjoy it.
+      <p class="inside-joke">
+        Enjoy you fat fuck
       </p>
+
     </div>
   </div>
 </section>
