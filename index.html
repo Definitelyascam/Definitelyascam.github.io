@@ -3,74 +3,91 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For You</title>
+<title>For You ❤️</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
 }
 
 body {
-  background: #0f0f12;
-  color: #f5f5f7;
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle at top, #3b0a15, #140307 70%);
+  color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  overflow-x: hidden;
   padding: 20px;
 }
 
+/* Floating hearts background */
+body::before {
+  content: "❤ ❤ ❤ ❤ ❤";
+  position: fixed;
+  font-size: 120px;
+  opacity: 0.03;
+  top: 10%;
+  left: 5%;
+  animation: float 12s ease-in-out infinite alternate;
+}
+
+@keyframes float {
+  from { transform: translateY(0px); }
+  to { transform: translateY(40px); }
+}
+
 .container {
-  background: rgba(255,255,255,0.04);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255, 255, 255, 0.05);
   border-radius: 24px;
   padding: 60px 40px;
   max-width: 700px;
   width: 100%;
   text-align: center;
-  box-shadow: 0 30px 80px rgba(0,0,0,0.4);
-  animation: fadeIn 1.2s ease;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+  animation: fadeIn 1s ease forwards;
 }
 
 h1 {
-  font-size: 2.2rem;
-  font-weight: 600;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.6rem;
   margin-bottom: 30px;
-  letter-spacing: -0.5px;
+  color: #ffccd5;
 }
 
 p {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  opacity: 0.85;
+  font-size: 1.15rem;
+  line-height: 1.8;
   margin-bottom: 30px;
+  opacity: 0.9;
 }
 
 .highlight {
   font-weight: 500;
-  opacity: 1;
+  color: #ff8fa3;
 }
 
 button {
-  background: #ffffff;
-  color: #111;
+  background: linear-gradient(135deg, #ff4d6d, #ff758f);
   border: none;
-  padding: 14px 32px;
-  font-size: 0.95rem;
+  padding: 15px 34px;
+  font-size: 1rem;
+  color: white;
   border-radius: 40px;
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: 0.3s ease;
+  box-shadow: 0 10px 30px rgba(255,77,109,0.4);
 }
 
 button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(255,255,255,0.15);
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(255,77,109,0.6);
 }
 
 .voucher {
@@ -84,11 +101,12 @@ button:hover {
   max-width: 500px;
   border-radius: 16px;
   margin-bottom: 20px;
+  box-shadow: 0 15px 50px rgba(0,0,0,0.5);
 }
 
 .subline {
-  font-size: 0.95rem;
-  opacity: 0.7;
+  font-size: 1rem;
+  opacity: 0.85;
 }
 
 @keyframes fadeIn {
@@ -101,12 +119,12 @@ button:hover {
   to {opacity:1; transform: translateY(0);}
 }
 
-@media(max-width: 600px){
+@media(max-width:600px){
   .container {
     padding: 40px 25px;
   }
   h1 {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
 }
 </style>
@@ -116,7 +134,7 @@ button:hover {
 
 <div class="container">
 
-  <h1>Happy Valentine’s Day</h1>
+  <h1>Happy Valentine’s Day ❤️</h1>
 
   <p>
     You told me <span class="highlight">La Casa di Nico</span> is your favourite.
