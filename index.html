@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+  color: white;
+  overflow-x: hidden;
+}
+
+.section {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+h1 {
+  font-size: 2.6rem;
+}
+
+.text {
+  font-size: 1.2rem;
+  max-width: 700px;
+  line-height: 1.6;
+  transition: 0.3s ease;
+}
+
+.text:hover {
+  transform: scale(1.05);
+}
+
+.highlight {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 30px 0;
+  transition: 0.3s ease;
+}
+
+.highlight:hover {
+  transform: scale(1.08);
+}
+
+button {
+  margin-top: 30px;
+  background: white;
+  color: #ff4d6d;
+  border: none;
+  padding: 14px 28px;
+  font-size: 1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background: #ffe6ec;
+  transform: scale(1.07);
+}
+
+.voucher {
+  display: none;
+  margin-top: 40px;
+  animation: fadeIn 1s ease;
+}
+
+.voucher img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+}
+
+.subline {
+  margin-top: 20px;
+  font-size: 1rem;
+  opacity: 0.9;
+  transition: 0.3s ease;
+}
+
+.subline:hover {
+  transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+
+<body>
+
+<section class="section">
+  <div>
+    <h1>Happy Valentine’s Day, cutie ❤️</h1>
+  </div>
+</section>
+
+<section class="section">
+  <div>
+    <p class="text">
+      You told me La Casa di Nico is your favourite.
+      So I remembered.
+    </p>
+
+    <span class="highlight">
+      Just something small for someone I genuinely enjoy.
+    </span>
+  </div>
+</section>
+
+<section class="section">
+  <div>
+    <button onclick="showVoucher()">Open Your Surprise</button>
+
+    <div class="voucher" id="voucher">
+      <!-- Replace voucher-placeholder.jpg later with your real voucher -->
+      <img src="voucher-placeholder.jpg" alt="Voucher">
+
+      <p class="subline">
+        Use it whenever you want.
+      </p>
+
+      <span class="highlight">
+        Preferably when you're dressed cute.
+      </span>
+
+      <p style="opacity:0.6; margin-top:20px; font-size:0.9rem;">
+        Enjoy it.
+      </p>
+    </div>
+  </div>
+</section>
+
+<script>
+function showVoucher() {
+  document.getElementById("voucher").style.display = "block";
+}
+
+const sections = document.querySelectorAll(".section");
+
+window.addEventListener("scroll", () => {
+  sections.forEach(section => {
+    const position = section.getBoundingClientRect().top;
+    const screenPosition = window.innerHeight / 1.2;
+    if(position < screenPosition){
+      section.classList.add("visible");
+    }
+  });
+});
+</script>
+
+</body>
+</html>
