@@ -3,177 +3,144 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For You ❤️</title>
+<title>For You</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-  scroll-behavior: smooth;
+  font-family: 'Inter', sans-serif;
 }
 
 body {
-  background: linear-gradient(135deg, #ff758c, #ff7eb3);
-  color: white;
-  overflow-x: hidden;
-}
-
-.section {
-  height: 100vh;
+  background: #0f0f12;
+  color: #f5f5f7;
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  padding: 40px;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s ease;
+  min-height: 100vh;
+  padding: 20px;
 }
 
-.section.visible {
-  opacity: 1;
-  transform: translateY(0);
+.container {
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 24px;
+  padding: 60px 40px;
+  max-width: 700px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+  animation: fadeIn 1.2s ease;
 }
 
 h1 {
-  font-size: 2.6rem;
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 30px;
+  letter-spacing: -0.5px;
 }
 
-.text {
-  font-size: 1.2rem;
-  max-width: 700px;
-  line-height: 1.6;
-  transition: 0.3s ease;
-}
-
-.text:hover {
-  transform: scale(1.05);
+p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  opacity: 0.85;
+  margin-bottom: 30px;
 }
 
 .highlight {
-  display: block;
-  font-size: 1.4rem;
-  font-weight: 600;
-  margin: 30px 0;
-  transition: 0.3s ease;
-}
-
-.highlight:hover {
-  transform: scale(1.08);
+  font-weight: 500;
+  opacity: 1;
 }
 
 button {
-  margin-top: 30px;
-  background: white;
-  color: #ff4d6d;
+  background: #ffffff;
+  color: #111;
   border: none;
-  padding: 14px 28px;
-  font-size: 1rem;
-  border-radius: 30px;
+  padding: 14px 32px;
+  font-size: 0.95rem;
+  border-radius: 40px;
   cursor: pointer;
-  transition: 0.3s ease;
+  transition: all 0.25s ease;
 }
 
 button:hover {
-  background: #ffe6ec;
-  transform: scale(1.07);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(255,255,255,0.15);
 }
 
 .voucher {
-  display: none;
   margin-top: 40px;
-  animation: fadeIn 1s ease;
+  display: none;
+  animation: fadeUp 0.8s ease forwards;
 }
 
 .voucher img {
   width: 100%;
   max-width: 500px;
-  border-radius: 20px;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+  border-radius: 16px;
+  margin-bottom: 20px;
 }
 
 .subline {
-  margin-top: 20px;
-  font-size: 1rem;
-  opacity: 0.9;
-  transition: 0.3s ease;
-}
-
-.subline:hover {
-  transform: scale(1.05);
+  font-size: 0.95rem;
+  opacity: 0.7;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {opacity:0; transform: translateY(20px);}
+  to {opacity:1; transform: translateY(0);}
+}
+
+@keyframes fadeUp {
+  from {opacity:0; transform: translateY(20px);}
+  to {opacity:1; transform: translateY(0);}
+}
+
+@media(max-width: 600px){
+  .container {
+    padding: 40px 25px;
+  }
+  h1 {
+    font-size: 1.8rem;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<section class="section">
-  <div>
-    <h1>Happy Valentine’s Day, cutie ❤️</h1>
+<div class="container">
+
+  <h1>Happy Valentine’s Day</h1>
+
+  <p>
+    You told me <span class="highlight">La Casa di Nico</span> is your favourite.
+    So I remembered.
+  </p>
+
+  <p class="highlight">
+    Just something small for someone I genuinely enjoy.
+  </p>
+
+  <button onclick="showVoucher()">Open Your Surprise</button>
+
+  <div class="voucher" id="voucher">
+    <img src="voucher-placeholder.jpg" alt="Voucher">
+    <p class="subline">Use it whenever you want.</p>
+    <p class="subline">Preferably when you're dressed cute.</p>
   </div>
-</section>
 
-<section class="section">
-  <div>
-    <p class="text">
-      You told me La Casa di Nico is your favourite.
-      So I remembered.
-    </p>
-
-    <span class="highlight">
-      Just something small for someone I genuinely enjoy.
-    </span>
-  </div>
-</section>
-
-<section class="section">
-  <div>
-    <button onclick="showVoucher()">Open Your Surprise</button>
-
-    <div class="voucher" id="voucher">
-      <!-- Replace voucher-placeholder.jpg later with your real voucher -->
-      <img src="voucher-placeholder.jpg" alt="Voucher">
-
-      <p class="subline">
-        Use it whenever you want.
-      </p>
-
-      <span class="highlight">
-        Preferably when you're dressed cute.
-      </span>
-
-      <p style="opacity:0.6; margin-top:20px; font-size:0.9rem;">
-        Enjoy it.
-      </p>
-    </div>
-  </div>
-</section>
+</div>
 
 <script>
 function showVoucher() {
   document.getElementById("voucher").style.display = "block";
 }
-
-const sections = document.querySelectorAll(".section");
-
-window.addEventListener("scroll", () => {
-  sections.forEach(section => {
-    const position = section.getBoundingClientRect().top;
-    const screenPosition = window.innerHeight / 1.2;
-    if(position < screenPosition){
-      section.classList.add("visible");
-    }
-  });
-});
 </script>
 
 </body>
