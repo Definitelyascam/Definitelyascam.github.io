@@ -5,14 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Definitely not a scam 🤷‍♂️</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Cormorant Garamond', serif;
   scroll-behavior: smooth;
 }
 
@@ -30,13 +30,14 @@ body {
   100% { background-position: 0% 50%; }
 }
 
+/* Reduced vertical spacing */
 .section {
-  min-height: 80vh;
+  min-height: 65vh; /* smaller than 80vh */
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 30px 40px;
+  padding: 20px 40px;
   opacity: 0;
   transform: translateY(30px);
   transition: all 0.9s ease;
@@ -48,30 +49,36 @@ body {
 }
 
 h1 {
-  font-size: 2.6rem;
+  font-size: 2.8rem;
   font-weight: 700;
-  margin-bottom: 10px;
+  margin-bottom: 5px; /* tighter */
 }
 
 .text {
-  font-size: 1.2rem;
+  font-size: 1.35rem;
   max-width: 650px;
-  line-height: 1.8;
+  line-height: 1.6;
   opacity: 0.95;
 }
 
+/* Add slight space between the two sentences */
+.text span {
+  display: block;
+  margin-top: 10px;
+}
+
 .bold-highlight {
-  font-size: 1.35rem;
+  font-size: 1.5rem;
   font-weight: 700;
-  margin-top: 25px;
+  margin-top: 15px; /* reduced */
 }
 
 button {
-  margin-top: 40px;
+  margin-top: 25px; /* reduced */
   background: linear-gradient(135deg, #ff4d6d, #ff758f);
   border: none;
-  padding: 15px 34px;
-  font-size: 1rem;
+  padding: 14px 32px;
+  font-size: 1.1rem;
   color: white;
   border-radius: 40px;
   cursor: pointer;
@@ -86,7 +93,7 @@ button:hover {
 .voucher {
   opacity: 0;
   transform: translateY(20px);
-  margin-top: 50px;
+  margin-top: 30px; /* reduced */
   transition: 0.8s ease;
 }
 
@@ -103,24 +110,23 @@ button:hover {
 }
 
 .subline {
-  margin-top: 20px;
-  font-size: 1rem;
+  margin-top: 15px; /* slightly reduced */
+  font-size: 1.2rem;
   opacity: 0.9;
 }
 
 .arrow {
   font-size: 3.5rem;
-  margin-top: 60px;
+  margin-top: 60px; /* unchanged as requested */
 }
 
-/* THIS creates scroll gap */
+/* Scroll gap unchanged */
 .scroll-space {
   height: 180px;
 }
 
-/* Inside joke appears lower */
 .inside-joke {
-  font-size: 1rem;
+  font-size: 1.1rem;
   opacity: 0.8;
   animation: fadeIn 1.2s ease forwards;
 }
@@ -148,7 +154,7 @@ button:hover {
   <div>
     <p class="text">
       You told me La Casa di Nico is your favourite.
-      So I remembered.
+      <span>So I remembered.</span>
     </p>
   </div>
 </section>
@@ -174,7 +180,8 @@ button:hover {
       </p>
 
       <p class="bold-highlight">
-        Preferably when you're dressed cute 
+        Preferably when you're dressed cute 😉
+        
       </p>
 
       <div class="arrow">
