@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Definitely not a scam 🤷‍♂️</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700;900&display=swap" rel="stylesheet">
 
 <style>
 * {
@@ -30,9 +30,8 @@ body {
   100% { background-position: 0% 50%; }
 }
 
-/* Reduced vertical spacing */
 .section {
-  min-height: 65vh; /* smaller than 80vh */
+  min-height: 65vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -51,7 +50,7 @@ body {
 h1 {
   font-size: 2.8rem;
   font-weight: 700;
-  margin-bottom: 5px; /* tighter */
+  margin-bottom: 5px;
 }
 
 .text {
@@ -61,20 +60,21 @@ h1 {
   opacity: 0.95;
 }
 
-/* Add slight space between the two sentences */
 .text span {
   display: block;
   margin-top: 10px;
 }
 
+/* 🔥 Stronger bold highlights */
 .bold-highlight {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-top: 15px; /* reduced */
+  font-size: 1.55rem;
+  font-weight: 900;
+  margin-top: 15px;
+  letter-spacing: 0.5px;
 }
 
 button {
-  margin-top: 25px; /* reduced */
+  margin-top: 25px;
   background: linear-gradient(135deg, #ff4d6d, #ff758f);
   border: none;
   padding: 14px 32px;
@@ -93,7 +93,7 @@ button:hover {
 .voucher {
   opacity: 0;
   transform: translateY(20px);
-  margin-top: 30px; /* reduced */
+  margin-top: 30px;
   transition: 0.8s ease;
 }
 
@@ -110,17 +110,16 @@ button:hover {
 }
 
 .subline {
-  margin-top: 15px; /* slightly reduced */
+  margin-top: 15px;
   font-size: 1.2rem;
   opacity: 0.9;
 }
 
 .arrow {
   font-size: 3.5rem;
-  margin-top: 60px; /* unchanged as requested */
+  margin-top: 60px;
 }
 
-/* Scroll gap unchanged */
 .scroll-space {
   height: 180px;
 }
@@ -170,7 +169,7 @@ button:hover {
 
 <section class="section">
   <div>
-    <button onclick="showVoucher()">Open Your Surprise 💌</button>
+    <button id="openBtn">Open Your Surprise 💌</button>
 
     <div class="voucher" id="voucher">
       <img src="voucher-placeholder.jpg" alt="Voucher">
@@ -181,7 +180,6 @@ button:hover {
 
       <p class="bold-highlight">
         Preferably when you're dressed cute 😉
-        
       </p>
 
       <div class="arrow">
@@ -199,9 +197,13 @@ button:hover {
 </section>
 
 <script>
-function showVoucher() {
-  document.getElementById("voucher").classList.add("show");
-}
+const openBtn = document.getElementById("openBtn");
+const voucher = document.getElementById("voucher");
+
+openBtn.addEventListener("click", function() {
+  voucher.classList.add("show");
+  openBtn.style.display = "none";
+});
 
 const sections = document.querySelectorAll(".section");
 
